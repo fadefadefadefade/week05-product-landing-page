@@ -29,25 +29,25 @@
         </h2>
 
         <p class="text-xl text-gray-400 leading-relaxed mb-10 max-w-2xl mx-auto">
-            Join thousands of night owls who've made Overnight Cafe their second home.
-            Your table is waiting. Your coffee is brewing.
+            Your table is waiting. Your coffee is brewing. Come in and experience
+            the night the way it was meant to be — warm, bold, and unforgettable.
         </p>
 
         {{-- CTA Buttons --}}
         <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <x-button href="#contact" variant="primary" size="lg" class="text-base px-10 py-4">
-                🌙 Start Free Trial
+            <x-button href="#pricing" variant="primary" size="lg" class="text-base px-10 py-4">
+                ☕ Order Now
             </x-button>
             <x-button href="#contact" variant="secondary" size="lg" class="text-base px-10 py-4">
-                📞 Contact Sales
+                📍 Order Now
             </x-button>
         </div>
 
         {{-- Register nudge --}}
         <p class="text-gray-600 text-sm">
-            No credit card required.
-            <a href="#contact" class="text-[#d4a843] hover:text-[#f0c060] underline underline-offset-2 transition-colors">
-                Register for free →
+            Walk in anytime — no reservations needed.
+            <a href="#pricing" class="text-[#d4a843] hover:text-[#f0c060] underline underline-offset-2 transition-colors">
+                See our menu →
             </a>
         </p>
 

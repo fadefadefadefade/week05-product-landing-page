@@ -14,7 +14,6 @@
         </div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {{-- Header --}}
             <div class="text-center mb-16">
                 <span class="inline-block text-[#d4a843] text-xs font-bold uppercase tracking-[0.3em] mb-4">Why Choose Us</span>
                 <h2 class="text-4xl lg:text-5xl font-black text-white leading-tight">
@@ -26,8 +25,7 @@
                 </p>
             </div>
 
-            {{-- Feature Cards Grid --}}
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-5 max-w-3xl mx-auto">
                 <x-feature-card
                     icon="🌙"
                     title="Open Till 4 AM"
@@ -45,16 +43,6 @@
                     description="From lo-fi beats to jazz and indie — our nightly playlists set the perfect mood for focus or conversation."
                 />
                 <x-feature-card
-                    icon="📶"
-                    title="High-Speed WiFi"
-                    description="Blazing fast, reliable connection so you can work, stream, or study without interruption all night long."
-                />
-                <x-feature-card
-                    icon="🛋️"
-                    title="Cozy Workspaces"
-                    description="Private booths, communal tables, and power outlets at every seat. Designed for productivity and comfort."
-                />
-                <x-feature-card
                     icon="🍞"
                     title="Fresh Night Bites"
                     description="Hot sandwiches, pastries, and light meals made fresh throughout the night. Fuel for your late-night sessions."
@@ -66,7 +54,7 @@
     {{-- Product Showcase --}}
     <x-showcase />
 
-    {{-- Pricing Section --}}
+    {{-- Menu / Drinks Section --}}
     <section id="pricing" class="py-24 lg:py-32 bg-[#0a0a0a] relative overflow-hidden">
         <div class="absolute inset-0 pointer-events-none">
             <div class="absolute right-1/4 bottom-0 w-[500px] h-[400px] bg-[#d4a843]/4 rounded-full blur-3xl"></div>
@@ -75,136 +63,169 @@
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {{-- Header --}}
             <div class="text-center mb-16">
-                <span class="inline-block text-[#d4a843] text-xs font-bold uppercase tracking-[0.3em] mb-4">Membership Plans</span>
+                <span class="inline-block text-[#d4a843] text-xs font-bold uppercase tracking-[0.3em] mb-4">Our Drinks</span>
                 <h2 class="text-4xl lg:text-5xl font-black text-white leading-tight">
-                    Pick Your <span class="gradient-text">Night Pass.</span>
+                    The <span class="gradient-text">Overnight Menu.</span>
                 </h2>
                 <p class="text-gray-500 mt-4 max-w-xl mx-auto text-lg">
-                    From casual drop-ins to dedicated regulars — we have a plan that fits your night.
+                    From classic espressos to specialty lattes and refreshers — there's something for every night owl.
                 </p>
             </div>
 
-            {{-- Pricing Cards --}}
-            <div class="grid md:grid-cols-3 gap-6 lg:gap-8 items-center max-w-5xl mx-auto">
-                <x-pricing-card
-                    plan="Starter"
-                    price="Free"
-                    period=""
-                    desc="Perfect for first-timers and casual visitors."
-                    :features="[
-                        'Walk-in access anytime',
-                        'Standard WiFi (20 Mbps)',
-                        'Access to communal tables',
-                        'Order from regular menu',
-                        '1 loyalty stamp per visit',
-                    ]"
-                    cta="Walk In Free"
-                />
-                <x-pricing-card
-                    plan="Professional"
-                    price="₱599"
-                    period="/month"
-                    desc="For regulars who own the night."
-                    :popular="true"
-                    :features="[
-                        'Priority seating reservation',
-                        'High-speed WiFi (100 Mbps)',
-                        'Private booth access',
-                        '10% off all orders',
-                        'Monthly free specialty drink',
-                        'Members-only events',
-                        'Early access to new menu',
-                    ]"
-                    cta="Get Night Pass"
-                />
-                <x-pricing-card
-                    plan="Enterprise"
-                    price="₱1,999"
-                    period="/month"
-                    desc="For teams and power users."
-                    :features="[
-                        'Dedicated private room',
-                        'Dedicated fiber WiFi line',
-                        'Unlimited free brewed coffee',
-                        '20% off all orders',
-                        'Event space booking (2x/mo)',
-                        'Branded loyalty card',
-                        'Account manager support',
-                        'Custom ambient preferences',
-                    ]"
-                    cta="Contact Sales"
-                />
+            {{-- Menu Grid --}}
+            <div class="grid lg:grid-cols-2 gap-8">
+
+                {{-- COFFEE --}}
+                <div class="bg-[#111111] border border-white/5 rounded-2xl p-6 lg:p-8">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-[#d4a843] font-black text-xl uppercase tracking-wider">Coffee</h3>
+                        <div class="flex gap-4 text-xs text-gray-500 font-bold uppercase tracking-wider">
+                            <span>Iced</span>
+                            <span>Hot</span>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        @php $coffeeItems = [
+                            ['Americano',             69,  89],
+                            ['Sweet Americano',       79,  99],
+                            ['Overnight Latte',       89, 109],
+                            ['Spanish Latte',         89, 109],
+                            ['Mocha Latte',           99, 119],
+                            ['Vanilla Latte',         99, 119],
+                            ['Roasted Almond Latte',  99, 119],
+                            ['Macadamia Nut Latte',   99, 119],
+                            ['Hazelnut Latte',        99, 119],
+                            ['Seasalt Latte',         99, 119],
+                            ['Salted Caramel',       109, 129],
+                            ['Caramel Macchiato',    109, 129],
+                            ['White Chocolate Mocha',109, 129],
+                            ['Coffee Jelly',         109, 129],
+                            ['Biscoff Latte',        119, 139],
+                        ]; @endphp
+                        @foreach($coffeeItems as $item)
+                        <div class="flex items-center justify-between py-2 border-b border-white/5 last:border-0 group hover:bg-white/2 rounded-lg px-2 -mx-2 transition-colors">
+                            <span class="text-gray-300 text-sm group-hover:text-white transition-colors">{{ $item[0] }}</span>
+                            <div class="flex gap-6 text-sm font-bold">
+                                <span class="text-[#d4a843] w-8 text-right">{{ $item[1] }}</span>
+                                <span class="text-white w-8 text-right">{{ $item[2] }}</span>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+
+                {{-- Right column: Matcha + Non-Coffee + Refreshers + Add-ons --}}
+                <div class="space-y-6">
+
+                    {{-- MATCHA SERIES --}}
+                    <div class="bg-[#111111] border border-white/5 rounded-2xl p-6">
+                        <div class="flex items-center justify-between mb-5">
+                            <h3 class="text-[#d4a843] font-black text-xl uppercase tracking-wider">Matcha Series</h3>
+                            <div class="flex gap-4 text-xs text-gray-500 font-bold uppercase tracking-wider">
+                                <span>Iced</span>
+                                <span>Hot</span>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            @php $matchaItems = [
+                                ['Matcha Latte',      99,  119],
+                                ['Strawberry Matcha', 119, 139],
+                                ['Seasalt Matcha',    119, 139],
+                            ]; @endphp
+                            @foreach($matchaItems as $item)
+                            <div class="flex items-center justify-between py-2 border-b border-white/5 last:border-0 group hover:bg-white/2 rounded-lg px-2 -mx-2 transition-colors">
+                                <span class="text-gray-300 text-sm group-hover:text-white transition-colors">{{ $item[0] }}</span>
+                                <div class="flex gap-6 text-sm font-bold">
+                                    <span class="text-[#d4a843] w-8 text-right">{{ $item[1] }}</span>
+                                    <span class="text-white w-8 text-right">{{ $item[2] }}</span>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+
+                    {{-- NON-COFFEE BASED --}}
+                    <div class="bg-[#111111] border border-white/5 rounded-2xl p-6">
+                        <div class="flex items-center justify-between mb-5">
+                            <h3 class="text-[#d4a843] font-black text-xl uppercase tracking-wider">Non-Coffee Based</h3>
+                            <div class="flex gap-4 text-xs text-gray-500 font-bold uppercase tracking-wider">
+                                <span>Iced</span>
+                                <span>Hot</span>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            @php $nonCoffeeItems = [
+                                ['Choco Latte',      89,  109],
+                                ['Strawberry Milk',  89,  109],
+                                ['Cookies & Cream',  89,  109],
+                                ['Ube Milk',         89,  109],
+                                ['Biscoff Milk',     109, 129],
+                                ['Pistachio (Dubai)',130, 150],
+                            ]; @endphp
+                            @foreach($nonCoffeeItems as $item)
+                            <div class="flex items-center justify-between py-2 border-b border-white/5 last:border-0 group hover:bg-white/2 rounded-lg px-2 -mx-2 transition-colors">
+                                <span class="text-gray-300 text-sm group-hover:text-white transition-colors">{{ $item[0] }}</span>
+                                <div class="flex gap-6 text-sm font-bold">
+                                    <span class="text-[#d4a843] w-8 text-right">{{ $item[1] }}</span>
+                                    <span class="text-white w-8 text-right">{{ $item[2] }}</span>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+
+                    {{-- REFRESHERS + ADD-ONS side by side --}}
+                    <div class="grid grid-cols-2 gap-4">
+
+                        {{-- REFRESHERS --}}
+                        <div class="bg-[#111111] border border-white/5 rounded-2xl p-5">
+                            <h3 class="text-[#d4a843] font-black text-base uppercase tracking-wider mb-4">Refreshers</h3>
+                            <div class="space-y-3">
+                                @php $refreshers = [
+                                    ['Strawberry',  79],
+                                    ['Green Apple', 79],
+                                    ['Lychee',      79],
+                                ]; @endphp
+                                @foreach($refreshers as $item)
+                                <div class="flex items-center justify-between py-1.5 border-b border-white/5 last:border-0">
+                                    <span class="text-gray-300 text-xs">{{ $item[0] }}</span>
+                                    <span class="text-[#d4a843] text-sm font-bold">{{ $item[1] }}</span>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        {{-- ADD-ONS --}}
+                        <div class="bg-[#111111] border border-white/5 rounded-2xl p-5">
+                            <h3 class="text-[#d4a843] font-black text-base uppercase tracking-wider mb-4">Add-ons</h3>
+                            <div class="space-y-3">
+                                @php $addons = [
+                                    ['Extra Shot',        20],
+                                    ['Extra Syrup 15ml',  15],
+                                    ['Extra Sauce 20ml',  15],
+                                ]; @endphp
+                                @foreach($addons as $item)
+                                <div class="flex items-center justify-between py-1.5 border-b border-white/5 last:border-0">
+                                    <span class="text-gray-300 text-xs">{{ $item[0] }}</span>
+                                    <span class="text-[#d4a843] text-sm font-bold">+{{ $item[1] }}</span>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <p class="text-center text-gray-600 text-sm mt-10">
-                All plans include access to our base menu and free water station.
-                <a href="#contact" class="text-[#d4a843] hover:underline ml-1">Questions? Talk to us →</a>
-            </p>
-        </div>
-    </section>
-
-    {{-- Testimonials Section --}}
-    <section id="testimonials" class="py-24 lg:py-32 bg-[#0d0d0d] relative overflow-hidden">
-        <div class="absolute inset-0 pointer-events-none">
-            <div class="absolute left-1/3 top-0 w-96 h-96 bg-[#d4a843]/4 rounded-full blur-3xl"></div>
-        </div>
-
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {{-- Header --}}
-            <div class="text-center mb-16">
-                <span class="inline-block text-[#d4a843] text-xs font-bold uppercase tracking-[0.3em] mb-4">What They Say</span>
-                <h2 class="text-4xl lg:text-5xl font-black text-white leading-tight">
-                    Loved by <span class="gradient-text">Night Owls.</span>
-                </h2>
-                <p class="text-gray-500 mt-4 max-w-xl mx-auto text-lg">
-                    Don't just take our word for it — here's what our community says.
-                </p>
-            </div>
-
-            {{-- Testimonial Cards --}}
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <x-testimonial-card
-                    name="Marco Reyes"
-                    position="Freelance Developer"
-                    initials="M"
-                    :rating="5"
-                    review="Overnight Cafe literally saved my deadlines. Fast WiFi, great coffee, and the vibe at 2AM is absolutely unmatched. This is my second office now."
-                />
-                <x-testimonial-card
-                    name="Aisha Santos"
-                    position="Graphic Designer"
-                    initials="A"
-                    :rating="5"
-                    review="I've tried every late-night cafe in the city. None of them come close. The Starlight Latte alone is worth the trip. Cozy, quiet, and the playlist is perfect."
-                />
-                <x-testimonial-card
-                    name="Diego Lim"
-                    position="Medical Student"
-                    initials="D"
-                    :rating="5"
-                    review="As a med student pulling all-nighters, this place is a lifesaver. Comfortable seats, great lighting for studying, and the staff is super friendly."
-                />
-                <x-testimonial-card
-                    name="Camille Cruz"
-                    position="Content Creator"
-                    initials="C"
-                    :rating="5"
-                    review="The aesthetic alone makes it worth visiting. Every corner is Instagram-worthy. The Midnight Espresso is now part of my nightly ritual."
-                />
-                <x-testimonial-card
-                    name="Ryan Tan"
-                    position="Startup Founder"
-                    initials="R"
-                    :rating="5"
-                    review="We host our late-night team syncs here every week. The Enterprise plan is a steal. Private room, dedicated WiFi — it's better than our actual office."
-                />
-                <x-testimonial-card
-                    name="Lea Mendoza"
-                    position="Writer & Blogger"
-                    initials="L"
-                    :rating="5"
-                    review="I wrote my entire first novel here. Something about the night energy just unlocks creativity. Overnight Cafe is where my best work happens."
-                />
+            {{-- Menu image reference --}}
+            <div class="mt-10 text-center">
+                <p class="text-gray-600 text-sm mb-4">View our full printed menu</p>
+                <a href="{{ asset('images/price.jpg') }}" target="_blank"
+                   class="inline-flex items-center gap-2 text-[#d4a843] border border-[#d4a843]/30 px-5 py-2.5 rounded-lg hover:bg-[#d4a843]/10 transition-all text-sm font-semibold">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    See Full Menu Image
+                </a>
             </div>
         </div>
     </section>
