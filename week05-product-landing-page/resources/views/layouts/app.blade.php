@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Overnight Cafe — Your late-night sanctuary. Premium coffee, cozy ambiance, open till dawn.">
-    <title>{{ $title ?? 'Overnight. Cafe' }}</title>
+    <title>@yield('title', 'Overnight. Cafe')</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,20 +14,20 @@
     <!-- Vite Assets -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-[#0a0a0a] text-white antialiased grain-overlay">
+<body class="bg-[#0a0a0a] text-white antialiased">
 
     {{-- Navigation --}}
     <x-navbar />
 
     {{-- Main Content --}}
     <main>
-        {{ $slot }}
+        @yield('content')
     </main>
 
     {{-- Footer --}}
     <x-footer />
 
-    {{-- Mobile menu script --}}
+    <!-- Scripts -->
     <script>
         // Mobile menu toggle
         const menuBtn = document.getElementById('mobile-menu-btn');

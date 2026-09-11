@@ -1,5 +1,8 @@
-<x-layouts.app>
-    <x-slot:title>Overnight. Cafe — Your Late-Night Sanctuary</x-slot:title>
+@extends('layouts.app')
+
+@section('title', 'Overnight. Cafe — Your Late-Night Sanctuary')
+
+@section('content')
 
     {{-- Hero --}}
     <x-hero />
@@ -83,7 +86,6 @@
 
             {{-- Pricing Cards --}}
             <div class="grid md:grid-cols-3 gap-6 lg:gap-8 items-center max-w-5xl mx-auto">
-
                 <x-pricing-card
                     plan="Starter"
                     price="Free"
@@ -98,7 +100,6 @@
                     ]"
                     cta="Walk In Free"
                 />
-
                 <x-pricing-card
                     plan="Professional"
                     price="₱599"
@@ -116,7 +117,6 @@
                     ]"
                     cta="Get Night Pass"
                 />
-
                 <x-pricing-card
                     plan="Enterprise"
                     price="₱1,999"
@@ -136,7 +136,6 @@
                 />
             </div>
 
-            {{-- Footer note --}}
             <p class="text-center text-gray-600 text-sm mt-10">
                 All plans include access to our base menu and free water station.
                 <a href="#contact" class="text-[#d4a843] hover:underline ml-1">Questions? Talk to us →</a>
@@ -213,4 +212,4 @@
     {{-- CTA Section --}}
     <x-cta-section />
 
-</x-layouts.app>
+@endsection
